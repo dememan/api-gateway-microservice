@@ -1,32 +1,31 @@
-//package com.edu.miu.eaproject.apiservice.proxy;
-//
-//import com.edu.miu.eaproject.apiservice.domain.Comments;
-//import com.edu.miu.eaproject.apiservice.domain.Post;
-//import com.edu.miu.eaproject.apiservice.domain.Users;
-//import com.edu.miu.eaproject.apiservice.util.RestURL;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.core.ParameterizedTypeReference;
-//import org.springframework.http.HttpMethod;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.web.bind.annotation.*;
-//import org.springframework.web.client.RestTemplate;
-//
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping("/posts")
-//public class PostServiceProxy {
-//    @Autowired
-//    RestTemplate restTemplate;
-//
-//    @GetMapping
-//
-//    public List<Post> getPosts(Long id) {
-//        ResponseEntity<List<Post>> response =
-//                restTemplate.exchange(RestURL.postsURL, HttpMethod.GET, null,
-//                        new ParameterizedTypeReference<List<Post>>() {});
-//        return response.getBody();
-//    }
+package com.edu.miu.eaproject.apiservice.proxy;
+
+import com.edu.miu.eaproject.apiservice.domain.Comments;
+import com.edu.miu.eaproject.apiservice.domain.Post;
+import com.edu.miu.eaproject.apiservice.domain.Users;
+import com.edu.miu.eaproject.apiservice.util.RestURL;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/posts")
+public class PostServiceProxy {
+    @Autowired
+    RestTemplate restTemplate;
+
+    @GetMapping
+    public List<Post> getPosts(Long id) {
+        ResponseEntity<List<Post>> response =
+                restTemplate.exchange(RestURL.postsURL, HttpMethod.GET, null,
+                        new ParameterizedTypeReference<List<Post>>() {});
+        return response.getBody();
+    }
 //    public Post get(Long postid) {
 //
 //        return restTemplate.getForObject(RestURL.postUrl, Post.class, postid);
@@ -73,5 +72,5 @@
 //        return null;
 //    }
 //
-//
-//}
+
+}
