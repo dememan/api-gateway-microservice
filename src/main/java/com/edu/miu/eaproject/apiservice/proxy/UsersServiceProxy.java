@@ -56,7 +56,6 @@ public class UsersServiceProxy {
 
         return restTemplate.postForObject(RestURL.usersURL,user,Users.class);
     }
-
 //    // User posts
 //    @GetMapping("/{id}/comments")
 //    public List<Comments> getAllCommentsByUserId(@PathVariable Long id) {
@@ -64,7 +63,6 @@ public class UsersServiceProxy {
 //        List<Post> posts = PostServiceProxy.getPosts(id);
 //
 //    }
-
     @PutMapping("/{id}")
     public void update(@RequestBody Users user,@PathVariable Long id ) {
         user.setId(id);
@@ -75,4 +73,9 @@ public class UsersServiceProxy {
 
         restTemplate.delete(RestURL.userURL,id);
     }
-}
+
+    @PutMapping("/{id}")
+    public String updateTest(@RequestBody Users user , @PathVariable Long id) {
+      return "update request received for id: " + id;
+    }
+  }

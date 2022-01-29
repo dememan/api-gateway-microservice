@@ -3,13 +3,9 @@ package com.edu.miu.eaproject.apiservice.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
 
-@Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String firstName;
     private String lastName;
@@ -55,6 +51,4 @@ public class Users {
     public void setPassword(String password) {
         this.password = password;
     }
-//    @OneToMany(cascade = CascadeType.ALL)
-//     private List<Roles> roles = new ArrayList<>();
 }
