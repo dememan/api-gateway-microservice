@@ -1,9 +1,5 @@
 package com.edu.miu.eaproject.apiservice.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 public class Comments {
     private Long id;
 

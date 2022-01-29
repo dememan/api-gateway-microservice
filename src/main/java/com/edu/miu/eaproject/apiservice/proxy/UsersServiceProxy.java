@@ -63,12 +63,7 @@ public class UsersServiceProxy {
     }
     @DeleteMapping("/{id}")
     public void deleteById (@PathVariable Long id){
-
         restTemplate.delete(RestURL.userURL,id);
     }
 
-    @PutMapping("/{id}")
-    public String updateTest(@RequestBody Users user , @PathVariable Long id) {
-      return "update request received for id: " + id;
-    }
   }
