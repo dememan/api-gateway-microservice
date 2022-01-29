@@ -13,9 +13,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
         auth.inMemoryAuthentication()
+
                 .withUser("admin").password("{noop}admin").roles("ADMIN", "READER", "COMMENTOR").and()
-                .withUser("commentor").password("{noop}123").roles("COMMENTOR").and()
+                .withUser("commentor").password("{noop}123").roles("COMMENTOR","READER").and()
                 .withUser("reader").password("{noop}123").roles("READER");
     }
 
@@ -23,13 +25,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http
+                .httpBasic().and()
                 .authorizeRequests().antMatchers("/login", "/logout", "/index").permitAll().and()
                 .authorizeRequests().antMatchers(HttpMethod.GET, "/users", "/posts", "/comments").permitAll().and() //public
                 .authorizeRequests().antMatchers(HttpMethod.GET, "/users/**", "/posts/**", "/comments/**").hasRole("READER").and() //reader
                 .authorizeRequests().antMatchers(HttpMethod.POST, "/comments/**").hasAnyRole("COMMENTOR").and() //commentor
-                .authorizeRequests().antMatchers("/**").hasRole("ADMIN");   //anything else CRUD operations by Admin
-//                .formLogin().and() //not required ;enable for testing
-//                .logout();
+                .authorizeRequests().antMatchers("/**").hasRole("ADMIN").and()   //anything else CRUD operations by Admin
+                .formLogin().and() //not required ;enable for testing
+                .logout();
         http.csrf().disable();
     }
 
