@@ -41,7 +41,8 @@ public class CommentServiceProxy {
 
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody Comments comment) {
-        restTemplate.put(RestURL.commentsURL + id, comment);
+        comment.setId(id);
+        restTemplate.put(RestURL.commentsURL + id, comment,id);
     }
 
     @DeleteMapping("//{id}")

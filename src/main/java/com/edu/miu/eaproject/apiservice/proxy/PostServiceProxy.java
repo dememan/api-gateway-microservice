@@ -42,13 +42,13 @@ public class PostServiceProxy {
     @PutMapping("/{id}/like")
     public void addLike(@PathVariable Long id) {
 
-        restTemplate.put(RestURL.postLikes, Post.class);
+        restTemplate.put(RestURL.postLikes, Post.class,id);
     }
 
     @PutMapping("/{id}/dislike")
     public void removeLike(@PathVariable Long id) {
 
-        restTemplate.put(RestURL.postDisLikes, Post.class);
+        restTemplate.put(RestURL.postDisLikes, Post.class,id);
     }
 
     @GetMapping("/{id}/comments")
