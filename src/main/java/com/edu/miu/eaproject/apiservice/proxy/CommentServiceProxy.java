@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 @RestController
 public class CommentServiceProxy {
     @Autowired
