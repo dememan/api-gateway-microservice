@@ -11,8 +11,6 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class APIServiceApplication {
-
-
 	@Bean
 	public RestTemplate getRestTemplete(){
 

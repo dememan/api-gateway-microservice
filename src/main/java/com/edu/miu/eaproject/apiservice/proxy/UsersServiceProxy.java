@@ -53,16 +53,9 @@ public class UsersServiceProxy {
 
     @PostMapping
     public Users create(@RequestBody Users user) {
-
         return restTemplate.postForObject(RestURL.usersURL,user,Users.class);
     }
-//    // User posts
-//    @GetMapping("/{id}/comments")
-//    public List<Comments> getAllCommentsByUserId(@PathVariable Long id) {
-//
-//        List<Post> posts = PostServiceProxy.getPosts(id);
-//
-//    }
+  
     @PutMapping("/{id}")
     public void update(@RequestBody Users user,@PathVariable Long id ) {
         user.setId(id);
