@@ -42,20 +42,20 @@ public class PostServiceProxy {
     @PutMapping("/{id}/like")
     public void addLike(@PathVariable Long id) {
 
-        restTemplate.put(RestURL.postLikes, Post.class);
+        restTemplate.put(RestURL.postLikes, Post.class,id);
     }
 
     @PutMapping("/{id}/dislike")
     public void removeLike(@PathVariable Long id) {
 
-        restTemplate.put(RestURL.postDisLikes, Post.class);
+        restTemplate.put(RestURL.postDisLikes, Post.class,id);
     }
 
     @GetMapping("/{id}/comments")
     public List<Comments> getPostComments(@PathVariable Long id) {
 
         ResponseEntity<List<Comments>> response =
-                restTemplate.exchange(RestURL.postsURL + id + "/comments", HttpMethod.GET, null,
+                restTemplate.exchange(RestURL.postsForCommentsURL + id + "/comments", HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<Comments>>() {
                         });
         return response.getBody();
