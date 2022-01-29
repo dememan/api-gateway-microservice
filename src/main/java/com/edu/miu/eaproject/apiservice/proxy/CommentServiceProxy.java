@@ -34,7 +34,7 @@ public class CommentServiceProxy {
         return restTemplate.getForObject(RestURL.commentURL, Comments.class, id);
     }
 
-    @PostMapping("")
+    @PostMapping()
     public void add(@RequestBody Comments comment) {
         restTemplate.postForEntity(RestURL.commentsURL, comment, Comments.class);
     }
@@ -45,7 +45,7 @@ public class CommentServiceProxy {
         restTemplate.put(RestURL.commentsURL + id, comment,id);
     }
 
-    @DeleteMapping("//{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         restTemplate.delete(RestURL.commentsURL + id);
     }

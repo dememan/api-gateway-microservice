@@ -55,7 +55,7 @@ public class PostServiceProxy {
     public List<Comments> getPostComments(@PathVariable Long id) {
 
         ResponseEntity<List<Comments>> response =
-                restTemplate.exchange(RestURL.postsURL + id + "/comments", HttpMethod.GET, null,
+                restTemplate.exchange(RestURL.postsForCommentsURL + id + "/comments", HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<Comments>>() {
                         });
         return response.getBody();
