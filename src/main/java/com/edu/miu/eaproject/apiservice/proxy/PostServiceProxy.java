@@ -30,6 +30,17 @@ public class PostServiceProxy {
 
         return restTemplate.getForObject(RestURL.postUrl, Post.class, id);
     }
+    @PutMapping("/{id}/like")
+    public void addLike(@PathVariable Long id) {
+
+         restTemplate.put(RestURL.postLikes, Post.class);
+    }
+
+    @PutMapping("/{id}/dislike")
+    public void removeLike(@PathVariable Long id) {
+
+        restTemplate.put(RestURL.postDisLikes, Post.class);
+    }
 
     @GetMapping("/{id}/comments")
     public List<Comments> getPostComments(@PathVariable Long id) {

@@ -15,4 +15,6 @@ public class RestURL {
 
     public static final String usersForCommentsURL = "http://localhost:8083/users/";
     public static final String postsForCommentsURL = "http://localhost:8083/posts/";
+    public static final String postLikes = "http://localhost:8082/posts/2/like";
+    public static final String postDisLikes = "http://localhost:8082/posts/2/dislike";
 }
