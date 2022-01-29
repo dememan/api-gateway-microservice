@@ -9,10 +9,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -22,9 +19,9 @@ public class UsersServiceProxy {
 
     @Autowired
     private RestTemplate restTemplate;
- @GetMapping
 
- public List<Users> getUsers(Long id) {
+ @GetMapping
+ public List<Users> getUsers() {
      ResponseEntity<List<Users>> response =
              restTemplate.exchange(RestURL.usersURL, HttpMethod.GET, null,
                      new ParameterizedTypeReference<List<Users>>() {});
@@ -35,6 +32,9 @@ public class UsersServiceProxy {
         public Users getById(@PathVariable Long id) {
 
             return restTemplate.getForObject(RestURL.userURL, Users.class, id);
-                  }
-
+ }
+    @PutMapping("/{id}")
+    public String updateTest(@RequestBody Users user , @PathVariable Long id) {
+      return "update request received for id: " + id;
+    }
   }
