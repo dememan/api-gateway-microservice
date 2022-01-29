@@ -22,14 +22,14 @@ public class UsersServiceProxy {
 
     @Autowired
     private RestTemplate restTemplate;
- @GetMapping
 
- public List<Users> getUsers(Long id) {
-     ResponseEntity<List<Users>> response =
-             restTemplate.exchange(RestURL.usersURL, HttpMethod.GET, null,
-                     new ParameterizedTypeReference<List<Users>>() {});
-     return response.getBody();
- }
+     @GetMapping
+     public List<Users> getUsers(Long id) {
+         ResponseEntity<List<Users>> response =
+                 restTemplate.exchange(RestURL.usersURL, HttpMethod.GET, null,
+                         new ParameterizedTypeReference<List<Users>>() {});
+         return response.getBody();
+     }
 
         @GetMapping("/{id}")
         public Users getById(@PathVariable Long id) {

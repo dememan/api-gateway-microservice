@@ -11,7 +11,4 @@ public class RestURL {
  ; //by userid=1111
     public static  final String commentsURL = "http://localhost:8083/comments/";
     public static  final String commentURL = "http://localhost:8083/comments/{id}";
-
-
-
 }
