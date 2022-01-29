@@ -2,7 +2,6 @@ package com.edu.miu.eaproject.apiservice.proxy;
 
 import com.edu.miu.eaproject.apiservice.domain.Comments;
 import com.edu.miu.eaproject.apiservice.domain.Post;
-import com.edu.miu.eaproject.apiservice.domain.Users;
 import com.edu.miu.eaproject.apiservice.util.RestURL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -26,51 +25,35 @@ public class PostServiceProxy {
                         new ParameterizedTypeReference<List<Post>>() {});
         return response.getBody();
     }
-//    public Post get(Long postid) {
-//
-//        return restTemplate.getForObject(RestURL.postUrl, Post.class, postid);
-//    }
-//
-//    @GetMapping
-//    public List<Users> findAll() {
-//
-//        return null;
-//    }
-//
-//    @GetMapping("/{id}")
-//    public Users getById(@PathVariable Long id) {
-//
-//        return null;
-//    }
-//
-//    @PostMapping
-//    public Users create(@RequestBody Users user) {
-//
-//        return null;
-//    }
-//   @PutMapping("/{id}")
-//    public Users update(@RequestBody Users user, @PathVariable long id) {
-//
-//
-//       return null;
-//    }
-//    @DeleteMapping("/{id}")
-//    public void deleteById (@PathVariable Long id){
-//
-//    }
-//
-//    // User posts
-//    @GetMapping("/{id}/comments")
-//    public List<Comments> getAllCommentsByUserId(@PathVariable Long id) {
-//
-//        return null;
-//    }
-//
-//    @GetMapping("/{id}/posts")
-//    public List<Post> getUserPosts(@PathVariable Long userId) {
-//
-//        return null;
-//    }
-//
+    @GetMapping("/{id}")
+    public Post getById(@PathVariable Long id) {
+
+        return restTemplate.getForObject(RestURL.postUrl, Post.class, id);
+    }
+
+    @GetMapping("/{id}/comments")
+    public List<Comments> getPostComments(@PathVariable Long id) {
+
+        ResponseEntity<List<Comments>> response =
+                restTemplate.exchange(RestURL.postsURL + id + "/comments", HttpMethod.GET, null,
+                        new ParameterizedTypeReference<List<Comments>>() {
+                        });
+        return response.getBody();
+    }
+
+    @PostMapping
+    public Post create(@RequestBody Post post) {
+        return restTemplate.postForObject(RestURL.postsURL,post,Post.class);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@RequestBody Post post,@PathVariable Long id ) {
+        post.setId(id);
+        restTemplate.put(RestURL.postUrl,post,id);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteById (@PathVariable Long id){
+        restTemplate.delete(RestURL.postUrl,id);
+    }
 
 }
