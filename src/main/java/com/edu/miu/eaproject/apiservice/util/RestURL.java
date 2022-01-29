@@ -12,4 +12,7 @@ public class RestURL {
  ; //by userid=1111
     public static  final String commentsURL = "http://localhost:8083/comments/";
     public static  final String commentURL = "http://localhost:8083/comments/{id}";
+
+    public static final String usersForCommentsURL = "http://localhost:8083/users/";
+    public static final String postsForCommentsURL = "http://localhost:8083/posts/";
 }

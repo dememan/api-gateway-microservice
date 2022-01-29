@@ -66,4 +66,12 @@ public class UsersServiceProxy {
         restTemplate.delete(RestURL.userURL,id);
     }
 
+    @GetMapping("/{userId}/comments")
+    public List<Comments> getUserComments(@PathVariable Long userId){
+        ResponseEntity<List<Comments>> response =
+                restTemplate.exchange(RestURL.usersForCommentsURL+ userId + "/comments", HttpMethod.GET, null,
+                        new ParameterizedTypeReference<List<Comments>>() {});
+
+        return response.getBody();
+    }
   }
