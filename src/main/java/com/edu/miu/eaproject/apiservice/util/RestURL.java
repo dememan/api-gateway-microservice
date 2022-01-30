@@ -5,23 +5,23 @@ import java.net.URI;
 public class RestURL {
 
     //USER_SERVICE
-    public static final String usersURL = "http://localhost:8081/users/";
-    public static final String userURL = "http://localhost:8081/users/{id}";
+    public static final String usersURL = "http://user-service/users/";
+    public static final String userURL = "http://user-service/users/{id}";
 
     //POST-SERVICE
-    public static  final String postsURL = "http://localhost:8082/posts/";
-    public static final String postUrl = "http://localhost:8082/posts/{id}";
-    public static final String userPostsUrl = "http://localhost:8082/users/";
+    public static  final String postsURL = "http://post-service/posts/";
+    public static final String postUrl = "http://post-service/posts/{id}";
+    public static final String userPostsUrl = "http://post-service/users/";
 
-    public static final String postLikes = "http://localhost:8082/posts/{id}/like";
-    public static final String postDisLikes = "http://localhost:8082/posts/{id}/dislike";
+    public static final String postLikes = "http://post-service/posts/{id}/like";
+    public static final String postDisLikes = "http://post-service/posts/{id}/dislike";
 
 
     // Comment-service
-    public static  final String commentsURL = "http://localhost:8083/comments/";
-    public static  final String commentURL = "http://localhost:8083/comments/{id}";
+    public static  final String commentsURL = "http://comment-service/comments/";
+    public static  final String commentURL = "http://comment-service/comments/{id}";
 
-    public static final String usersForCommentsURL = "http://localhost:8083/users/";
-    public static final String postsForCommentsURL = "http://localhost:8083/posts/";
+    public static final String usersForCommentsURL = "http://comment-service/users/";
+    public static final String postsForCommentsURL = "http://comment-service/posts/";
 
 }
