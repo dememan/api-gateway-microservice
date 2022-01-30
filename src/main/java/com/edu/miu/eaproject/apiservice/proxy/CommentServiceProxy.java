@@ -14,7 +14,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @RestController
-@RequestMapping("/comments")
+@RequestMapping("/api/comments")
 public class CommentServiceProxy {
     @Autowired
     RestTemplate restTemplate;

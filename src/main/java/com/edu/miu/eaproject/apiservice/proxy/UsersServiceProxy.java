@@ -4,20 +4,17 @@ import com.edu.miu.eaproject.apiservice.domain.Comments;
 import com.edu.miu.eaproject.apiservice.domain.Post;
 import com.edu.miu.eaproject.apiservice.domain.Users;
 import com.edu.miu.eaproject.apiservice.util.RestURL;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UsersServiceProxy {
 
     @Autowired

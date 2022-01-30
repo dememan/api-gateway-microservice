@@ -26,10 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .httpBasic().and()
-                .authorizeRequests().antMatchers("/login", "/logout", "/index").permitAll().and()
-                .authorizeRequests().antMatchers(HttpMethod.GET, "/users", "/posts", "/comments").permitAll().and() //public
-                .authorizeRequests().antMatchers(HttpMethod.GET, "/users/**", "/posts/**", "/comments/**").hasRole("READER").and() //reader
-                .authorizeRequests().antMatchers(HttpMethod.POST, "/comments/**").hasAnyRole("COMMENTOR").and() //commentor
+               .authorizeRequests().antMatchers(HttpMethod.GET, "/api/users", "/api/posts", "/api/comments").permitAll().and() //public
+                .authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/**", "/api/posts/**", "/api/comments/**").hasRole("READER").and() //reader
+                .authorizeRequests().antMatchers(HttpMethod.POST, "/api/comments/**").hasAnyRole("COMMENTOR").and() //commentor
                 .authorizeRequests().antMatchers("/**").hasRole("ADMIN").and()   //anything else CRUD operations by Admin
                 .formLogin().and() //not required ;enable for testing
                 .logout();
