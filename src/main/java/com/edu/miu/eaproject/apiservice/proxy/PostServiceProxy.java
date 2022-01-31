@@ -20,7 +20,6 @@ public class PostServiceProxy {
     @Autowired
     RestTemplate restTemplate;
 
-    //get desc ordered posts by likes
     @GetMapping
     public List<Post> getPosts() {
         ResponseEntity<List<Post>> response =
@@ -38,7 +37,6 @@ public class PostServiceProxy {
 
         return restTemplate.getForObject(RestURL.postUrl, Post.class, id);
     }
-
     @PutMapping("/{id}/like")
     public void addLike(@PathVariable Long id) {
 
