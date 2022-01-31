@@ -19,8 +19,9 @@ import java.util.stream.Collectors;
 public class PostServiceProxy {
     @Autowired
     RestTemplate restTemplate;
-
+//get desc ordered posts by user likes
     @GetMapping
+
     public List<Post> getPosts() {
         ResponseEntity<List<Post>> response =
                 restTemplate.exchange(RestURL.postsURL, HttpMethod.GET, null,
