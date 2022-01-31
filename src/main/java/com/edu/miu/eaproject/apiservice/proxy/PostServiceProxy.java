@@ -22,7 +22,7 @@ public class PostServiceProxy {
 
     //get desc ordered posts by likes
     @GetMapping
-    public List<Post> getPosts(Long id) {
+    public List<Post> getPosts() {
         ResponseEntity<List<Post>> response =
                 restTemplate.exchange(RestURL.postsURL, HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<Post>>() {

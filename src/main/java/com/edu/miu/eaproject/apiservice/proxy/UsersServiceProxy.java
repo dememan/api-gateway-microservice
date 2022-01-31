@@ -24,7 +24,7 @@ public class UsersServiceProxy {
     private PostServiceProxy postServiceProxy;
 
     @GetMapping
-    public List<Users> getUsers(Long id) {
+    public List<Users> getUsers() {
         ResponseEntity<List<Users>> response =
                 restTemplate.exchange(RestURL.usersURL, HttpMethod.GET, null,
                         new ParameterizedTypeReference<List<Users>>() {
